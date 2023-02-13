@@ -1,12 +1,10 @@
 package main
 
+import _ "fmt"
+
 func main() {
-	card2 := []string{"!23", newCard()}
-	card2 = append(card2, "123223", "124242")
-	for i := range card2 {
-		println(card2[i])
-	}
-}
-func newCard() string {
-	return "ngu xi"
+	cards := newDeck()
+	hand, remainingDeck := deal(cards, 3)
+	hand.print()
+	remainingDeck.print()
 }
