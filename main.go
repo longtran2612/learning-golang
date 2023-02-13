@@ -1,10 +1,14 @@
 package main
 
-import _ "fmt"
+import (
+	_ "fmt"
+)
 
 func main() {
 	cards := newDeck()
-	hand, remainingDeck := deal(cards, 3)
-	hand.print()
-	remainingDeck.print()
+	err := cards.saveFile("tesst save file")
+	if err != nil {
+		return
+	}
+
 }

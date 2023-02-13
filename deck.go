@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strings"
+	_ "strings"
+)
 
 type deck []string
 
@@ -24,4 +29,10 @@ func (deck deck) print() {
 
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+func (deck deck) toString() string {
+	return strings.Join(deck, ",")
+}
+func (deck deck) saveFile(filename string) error {
+	return os.WriteFile(filename, []byte(deck.toString()), 0666)
 }
